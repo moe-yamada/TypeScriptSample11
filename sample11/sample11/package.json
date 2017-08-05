@@ -1,0 +1,13 @@
+{
+  "name": "sample11",
+  "version": "0.0.0",
+  "description": "sample11",
+  "main": "app.js",
+  "author": {
+    "name": "Moe Yamada"
+  },
+  "dependencies": {
+    "botbuilder": "^3.9.0",
+    "restify": "^5.0.1"
+  }
+}

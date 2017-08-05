@@ -57,3 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
+/.vs
+/sample11/.vs/sample11/v15
+/sample11/sample11/bin
+/sample11/sample11/obj/Debug
