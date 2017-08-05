@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var restify = require("restify");
 var builder = require("botbuilder");
+var appTalk = require("./app-talk");
 // Setup Restify Server
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
@@ -16,6 +17,8 @@ var connector = new builder.ChatConnector({
 server.post('/api/messages', connector.listen());
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector, function (session) {
+    var m = appTalk.App.Talk.GetGreeting(new Date());
+    session.send(m);
     session.send("You said: %s", session.message.text);
 });
 //# sourceMappingURL=app.js.map

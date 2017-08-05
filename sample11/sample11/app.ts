@@ -1,5 +1,6 @@
 ﻿import * as restify from 'restify'; 
 import * as builder from "botbuilder"; 
+import * as appTalk from "./app-talk"; 
 
 // Setup Restify Server
 var server = restify.createServer();
@@ -18,5 +19,7 @@ server.post('/api/messages', connector.listen());
 
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector, function (session) {
+    let m = appTalk.App.Talk.GetGreeting(new Date());
+    session.send(m);
     session.send("You said: %s", session.message.text);
 });
